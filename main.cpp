@@ -19,7 +19,9 @@ butter.setPrice(3);
 cout <<butter.getPrice() << endl;
 cout << milch.getPrice() << endl;
 milch.printEan();
+milch.setDescription("Südtiroler Bergbauernmilch aus 100% Heu!");
 
+cout <<milch.getDescription();
     return 0;
 
 
