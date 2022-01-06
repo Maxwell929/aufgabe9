@@ -12,21 +12,29 @@
 class Item {
     EanCode code;
     string name;
-    string description;
-    double price;
+    string description{""};
+    double price{+0};
 
 public:
 
-    Item( string code, string name, double price);
+    Item(string code, string name, double price);
+
+    EanCode getEanCode();
 
     string setDescription(string);
+
     string getDescription();
+
     void printEan();
 
     double getPrice();
+
     double setPrice(double price);
 
-string setName(string name);
+    string setName(string name);
+
+    friend ostream &operator<<(ostream &output, Item &i);
+
 
 };
 

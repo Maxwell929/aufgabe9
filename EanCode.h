@@ -15,13 +15,17 @@ class EanCode {
 
     string code;
 
-
 public:
 
-    EanCode(string code);
+    EanCode(string &code);
 
     void check();
+
     void printEan();
+
+    string getEan() const;
+
+    friend ostream &operator<<(ostream &output, EanCode &c);
 
 };
 
