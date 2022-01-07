@@ -31,17 +31,23 @@ public:
 
     Shop();
 
-    void setUrl(string url);
+    void setUrl(string &url);
 
-    void setName(string name);
+    void setName(string &name);
 
-    void setAdress(string road, int streetNumber, int zipCode, string City);
+    void setAdress(string road, int streetNumber, int zipCode, string city);
 
     void addItem(const Item &);
 
+    vector<Item> getItems();
+
     Item &findItem(const EanCode &code);
 
+    bool delItem(const EanCode &code);
+
     friend bool operator==(const EanCode &code1, const EanCode &code2);
+
+    friend bool operator!=(const EanCode &code1, const EanCode &code2);
 };
 
 #endif //OPERATING_OVERLOADING_SHOP_H

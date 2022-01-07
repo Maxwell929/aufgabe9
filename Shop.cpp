@@ -16,15 +16,15 @@ Shop::Shop(string url, string name, string road, int streetNumber, int zipCode, 
 
 Shop::Shop() {};
 
-void Shop::setUrl(string url) {
+void Shop::setUrl(string &url) {
     this->url = url;
 }
 
-void Shop::setName(string name) {
+void Shop::setName(string &name) {
     this->name = name;
 }
 
-void Shop::setAdress(string road, int streetNumber, int zipCode, string City) {
+void Shop::setAdress(string road, int streetNumber, int zipCode, string city) {
     this->road = road;
     this->streetNumber = streetNumber;
     this->zipCode = zipCode;
@@ -39,25 +39,52 @@ ostream &operator<<(ostream &output, Shop &s) {
 };
 
 
-//bool operator==(const EanCode &code1, const EanCode &code2) {
-//    if (code1 == code2 or code2 == code1) { return false; }
-//}
+bool operator==(const EanCode &code1, const EanCode &code2) {
+    return (code1.getEan() == code2.getEan());
+}
+
+bool operator!=(const EanCode &code1, const EanCode &code2) {
+    return (code1.getEan() != code2.getEan());
+}
 
 Item &Shop::findItem(const EanCode &code) {
-    for (Item item: items) {
-        if (item.getEanCode().getEan() == code.getEan()) {
-            cout<< "Item found" << endl;
+    for (Item &item: items) {
+        if (item.getEanCode() == code) {
+            cout << "Item found" << endl;
             return item;
-        } else {
-            cout << "No Item"<< endl;
-//
         }
     }
+    throw "does not exist";
 }
 
-void Shop::addItem(const Item &item) {
-    this->items.push_back(item);
+
+vector<Item> Shop::getItems() {
+    return this->items;
 }
+
+
+void Shop::addItem(const Item &item) {
+    for (const Item &i: items) {
+        if (i.getEanCode() == item.getEanCode()) {
+            throw "Item already in Store";
+        }
+    }
+    this->items.push_back(item);
+
+}
+
+bool Shop::delItem(const EanCode &code) {
+    for (auto i = items.begin(); i != items.end(); ++i)
+        if (i->getEanCode() == code) {
+            this->items.erase(i);
+            return true;
+        };
+    return false;
+}
+
+
+//    this->items.push_back(item);
+
 
 
 

@@ -16,7 +16,7 @@ void Item::printEan() {
 Item::Item(string code, string name, double price) : code(code), name(name), price(price) {}
 
 
-EanCode Item::getEanCode() {
+EanCode Item::getEanCode() const {
     return this->code;
 }
 

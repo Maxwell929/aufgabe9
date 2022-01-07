@@ -19,7 +19,7 @@ public:
 
     Item(string code, string name, double price);
 
-    EanCode getEanCode();
+    EanCode getEanCode() const;
 
     string setDescription(string);
 
@@ -34,6 +34,8 @@ public:
     string setName(string name);
 
     friend ostream &operator<<(ostream &output, Item &i);
+
+
 
 
 };
