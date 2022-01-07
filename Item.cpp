@@ -66,7 +66,8 @@ ostream &operator<<(ostream &output, Item &i) {
     output << i.category << endl;
 }
 
-bool Item::inCategory(Categories) {
+bool Item::inCategory(Categories c) {
+    if (this->category == c) return true;
     return false;
 }
 

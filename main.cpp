@@ -34,7 +34,7 @@ int main() {
             cout << i;
         }
 
-        butter.setCategory(Drinks);
+        cout << butter.inCategory(Drinks);
 //        cout << butter.getCategory();
 //        buy24.findItem(sahne.getEanCode());
 
