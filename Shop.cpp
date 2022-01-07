@@ -70,7 +70,6 @@ void Shop::addItem(const Item &item) {
         }
     }
     this->items.push_back(item);
-
 }
 
 bool Shop::delItem(const EanCode &code) {
@@ -81,11 +80,3 @@ bool Shop::delItem(const EanCode &code) {
         };
     return false;
 }
-
-
-//    this->items.push_back(item);
-
-
-
-
-

@@ -10,9 +10,9 @@ int main() {
 
 
     try {
-        Item butter("1547554221238", "Butter", 2.50);
-        Item milch("1278563406532", "Milch", 1.35);
-        Item sahne("1278553406532", "Sahne", 1.35);
+        Item butter("1547554221238", "Butter", 2.50, Food);
+        Item milch("1278563406532", "Milch", 1.35, Drinks);
+        Item sahne("1278553406532", "Sahne", 1.35, Food);
 
 //    items.push_back(butter);
 //    items.push_back(milch);
@@ -23,6 +23,10 @@ int main() {
         buy24.addItem(milch);
 
 
+        for (auto i: buy24.getItems()) {
+            cout << i;
+        }
+
         buy24.delItem(milch.getEanCode());
 
 
@@ -30,6 +34,8 @@ int main() {
             cout << i;
         }
 
+        butter.setCategory(Drinks);
+//        cout << butter.getCategory();
 //        buy24.findItem(sahne.getEanCode());
 
 
