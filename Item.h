@@ -25,7 +25,7 @@ public:
 
 //    Constructors
 
-    Item(string code, string name, double price, Categories category);
+    explicit Item(string code, string name, double price, Categories category);
 
     explicit Item(string code);
 

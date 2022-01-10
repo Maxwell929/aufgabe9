@@ -78,5 +78,12 @@ bool Shop::delItem(const EanCode &code) {
             this->items.erase(i);
             return true;
         };
+
     return false;
 }
+
+Shop::statistic Shop::statistics(const vector<Categories> &categories) {
+    return 0;
+}
+
+

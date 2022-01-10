@@ -8,10 +8,6 @@
 using namespace std;
 
 
-void Item::printEan() {
-    cout << this->code << endl;
-}
-
 //    Constructors
 
 Item::Item(string code, string name, double price, Categories category) : code(code), name(name), price(price),
@@ -72,4 +68,9 @@ bool Item::inCategory(Categories c) {
 }
 
 
+//other Methods
+
+void Item::printEan() {
+    cout << this->code << endl;
+}
 

@@ -22,6 +22,11 @@ class Shop {
     string city;
     vector<Item> items;
 
+    struct statistic{
+        Item cheap;
+        Item exp;
+        double durchschnittspreis;
+    };
 
 public:
 
@@ -48,6 +53,11 @@ public:
     friend bool operator==(const EanCode &code1, const EanCode &code2);
 
     friend bool operator!=(const EanCode &code1, const EanCode &code2);
+
+
+    statistic statistics(const vector<Categories>&
+    categories);
+
 };
 
 #endif //OPERATING_OVERLOADING_SHOP_H
