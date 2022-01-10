@@ -10,6 +10,8 @@ using namespace std;
 
 //    Constructors
 
+
+
 Item::Item(string code, string name, double price, Categories category) : code(code), name(name), price(price),
                                                                           category(category) {}
 
@@ -26,31 +28,29 @@ double Item::getPrice() const {
     return this->price;
 }
 
-string Item::getDescription() {
+string Item::getDescription() const {
     return this->description;
 }
 
-Categories Item::getCategory() {
+Categories Item::getCategory() const{
     return this->category;
 }
 
 //   Setters
 
-string Item::setName(string &n) {
+void Item::setName(const string &n) {
     this->name = n;
 }
 
-double Item::setPrice(double &p) {
+void Item::setPrice(const double &p) {
     this->price = p;
-    return this->price;
 }
 
-string Item::setDescription(string &d) {
+void Item::setDescription(const string &d) {
     this->description = d;
-    return this->description;
 }
 
-void Item::setCategory(Categories c) {
+void Item::setCategory(const Categories &c) {
     this->category = c;
 }
 
@@ -62,15 +62,12 @@ ostream &operator<<(ostream &output, Item &i) {
     output << i.category << endl;
 }
 
-bool Item::inCategory(Categories c) {
+//other Methods
+
+bool Item::inCategory(const Categories c) {
     if (this->category == c) return true;
     return false;
 }
 
 
-//other Methods
-
-void Item::printEan() {
-    cout << this->code << endl;
-}
 

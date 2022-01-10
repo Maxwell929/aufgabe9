@@ -1,11 +1,35 @@
 //
 // Created by max on 29.12.21.
 //
-
+#include <iostream>
 #include "EanCode.h"
 
 
+//    constructor
+
 EanCode::EanCode(string &code) : code(code) {}
+
+
+//    operator overload
+
+ostream &operator<<(ostream &output, EanCode &c) {
+    output << c.code;
+    return output;
+}
+
+//    setter
+
+void EanCode::setEan(string &ean)  {
+    this->code = ean;
+}
+
+//getter
+
+string EanCode::getEan() const {
+    return this->code;
+}
+
+//    other methods
 
 void EanCode::check() {
     if (this->code.length() == 13)
@@ -18,14 +42,4 @@ void EanCode::check() {
     }
 }
 
-void EanCode::printEan() {
-    cout << this->code << endl;
-}
 
-ostream &operator<<(ostream &output, EanCode &c) {
-    output << c.code;
-}
-
-string EanCode::getEan() const {
-    return this->code;
-};

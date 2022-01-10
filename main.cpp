@@ -3,64 +3,37 @@
 #include "EanCode.h"
 #include "Item.h"
 #include "Shop.h"
+#include "Statistic.h"
 
 using namespace std;
 
 int main() {
 
-
     try {
         Item butter("1547554221238", "Butter", 2.50, Food);
         Item milch("1278563406532", "Milch", 1.35, Drinks);
         Item sahne("1278553406532", "Sahne", 1.35, Food);
+        cout << butter << endl;
 
-//    items.push_back(butter);
-//    items.push_back(milch);
-
-        Shop buy24("www.buy24.de", "Buy24", "Herrengasse", 9, 39021, "Latsch");
+        Shop buy24("www.buy24.de", "Buy24", "Neuestrasse", 9, 25478, "Berlin");
+        cout << buy24 << endl;
 
         buy24.addItem(butter);
         buy24.addItem(milch);
+        buy24.addItem(sahne);
 
 
-        for (auto i: buy24.getItems()) {
-            cout << i;
-        }
+        butter.setDescription("Biologische Bergbauernbutter");
+        butter.setCategory(Food);
 
-        buy24.delItem(milch.getEanCode());
-
-
-        for (auto i: buy24.getItems()) {
-            cout << i;
-        }
-
-        cout << butter.inCategory(Drinks);
-//        cout << butter.getCategory();
-//        buy24.findItem(sahne.getEanCode());
+        buy24.setName("Buy25");
 
 
 
-
-
-//        buy24.addItem(butter);
     }
     catch (const char *txtExeption) {
         cout << "Exeption: " << txtExeption << endl;
     }
-//    cout << butter.getPrice() << endl;
-//    butter.setPrice(3);
-//    cout << butter.getPrice() << endl;
-//    cout << milch.getPrice() << endl;
-//    milch.printEan();
-////    milch.setDescription("Südtiroler Bergbauernmilch aus 100% Heu!");
-//
-//    cout << milch;
-//
-//    Shop derShop;
-//
-//    derShop.setName("Buy24");
-//    derShop.setUrl("www.derShop.at");
-//    cout << derShop;
 
 
     return 0;

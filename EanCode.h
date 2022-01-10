@@ -17,13 +17,23 @@ class EanCode {
 
 public:
 
+//    constructor
+
     EanCode(string &code);
+
+//getter
+
+    string getEan() const;
+
+//    setter
+
+    void setEan(string &ean);
+
+//    other methods
 
     void check();
 
-    void printEan();
-
-    string getEan() const;
+//    operator overload
 
     friend ostream &operator<<(ostream &output, EanCode &c);
 

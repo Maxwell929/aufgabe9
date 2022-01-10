@@ -9,6 +9,8 @@
 #include <string>
 #include "EanCode.h"
 
+using namespace std;
+
 enum Categories {
     Food, Electronics, Drinks
 };
@@ -25,40 +27,39 @@ public:
 
 //    Constructors
 
-    explicit Item(string code, string name, double price, Categories category);
+     Item(string code, string name, double price, Categories category);
 
-    explicit Item(string code);
+     Item(string code);
 
+//    Operator overload
+
+    friend ostream &operator<<(ostream &output, Item &i);
 
 //  Getters
 
     EanCode getEanCode() const;
 
-    string getDescription();
+    string getDescription() const;
 
     double getPrice() const;
 
-    Categories getCategory();
+     Categories getCategory() const;
 
 //   Setters
 
-    string setDescription(string &d);
+    void setDescription(const string &d);
 
-    double setPrice(double &p);
+    void setPrice(const double &p);
 
-    string setName(string &n);
+    void setName(const string &n);
 
-    void setCategory(Categories c);
+    void setCategory(const Categories &c);
 
 //    Other methods
 
-    void printEan();
-
     bool inCategory(Categories);
 
-//    Operator overload
 
-    friend ostream &operator<<(ostream &output, Item &i);
 
 };
 

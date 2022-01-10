@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include "Item.h"
+#include "Statistic.h"
 
 using namespace std;
 
@@ -22,42 +23,46 @@ class Shop {
     string city;
     vector<Item> items;
 
-    struct statistic{
-        Item cheap;
-        Item exp;
-        double durchschnittspreis;
-    };
-
 public:
 
-    friend ostream &operator<<(ostream &output, Shop &s);
+//    Constructors
 
     Shop(string url, string name, string road, int streetNumber, int zipCode, string City);
 
     Shop();
 
-    void setUrl(string &url);
+//    getter
 
-    void setName(string &name);
+    vector<Item> getItems() const;
 
-    void setAdress(string road, int streetNumber, int zipCode, string city);
+    Item findItem(const EanCode &code);
+
+//    setter
+
+    void setUrl(const string &u);
+
+    void setName(const string &n);
+
+    void setAddress(const string &r, const int &stNr, const int &zipC, const string &c);
+
+//    other methods
 
     void addItem(const Item &);
 
-    vector<Item> getItems();
-
-    Item &findItem(const EanCode &code);
+    Statistic statistics(const vector<Categories> &c);
 
     bool delItem(const EanCode &code);
+
+//    operator overload
+
+    friend ostream &operator<<(ostream &output, Shop &s);
 
     friend bool operator==(const EanCode &code1, const EanCode &code2);
 
     friend bool operator!=(const EanCode &code1, const EanCode &code2);
 
 
-    statistic statistics(const vector<Categories>&
-    categories);
-
 };
+
 
 #endif //OPERATING_OVERLOADING_SHOP_H
